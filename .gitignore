@@ -6,3 +6,5 @@ __pycache__/*
 code/__pycache__/*
 code/ui/__pycache__/*
 dati/*
+.venv/*
+.conda/*
