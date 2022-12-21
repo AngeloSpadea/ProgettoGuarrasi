@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Dec  19 00:43:23 2022
+Created on Wen Dec  21 02:43:23 2022
 
 @author: antonio
 """
 
-def conta_i_pagamenti_per_distretti(h):
+def conta_i_pagamenti_per_distretti(data):
     """
     Description
     ----------
@@ -33,5 +33,5 @@ def conta_i_pagamenti_per_distretti(h):
 
     """
     
-    risultato = h.groupby(['DOLocationID']).payment_type.value_counts()
+    risultato = data.groupby(['DOLocationID']).payment_type.value_counts()
     return risultato
