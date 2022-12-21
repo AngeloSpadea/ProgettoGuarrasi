@@ -8,4 +8,5 @@ code/ui/__pycache__/*
 dati/*
 .venv/*
 .conda/*
+output/*
 capomastro angelo.ipynb
