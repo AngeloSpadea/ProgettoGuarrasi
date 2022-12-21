@@ -2,12 +2,13 @@
 """
 Created on Wen Dec  21 02:43:23 2022
 
-@author: antonio
+@author: Angelo
+@author: Antonio
 """
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-def carico_dati(anno,mese,bourogh):
+def carico_dati(anno,mese):
     """
     
 
@@ -29,10 +30,10 @@ def carico_dati(anno,mese,bourogh):
     "Ho caricato i dati correttamente" o "Non sono riuscito a caricare i dati"
 
     """
-    
+    anno = '2022'
     mese = '04'
-    print(f'./dati/2022/yellow_tripdata_2022-{mese}.parquet')
-    data = pd.read_parquet(f'./dati/2022/yellow_tripdata_2022-{mese}.parquet')
+    print(f'./dati/{anno}/yellow_tripdata_{anno}-{mese}.parquet')
+    data = pd.read_parquet(f'./dati/{anno}/yellow_tripdata_{anno}-{mese}.parquet')
     
 
     return data
