@@ -4,8 +4,8 @@ Created on Wen Dec  21 02:43:23 2022
 
 @author: antonio
 """
-
-def conta_i_pagamenti_per_distretti(data):
+import pandas as pd
+def conta_i_pagamenti_per_distretti(data,Borough_val,paymentint):
     """
     Description
     ----------
@@ -32,6 +32,12 @@ def conta_i_pagamenti_per_distretti(data):
         x = Taxi Zone e y = rappresenta il codice di pagamento
 
     """
-    
+    zone_lookup = pd.read_csv("./dati/taxi+_zone_lookup.csv", index_col="LocationID")
     risultato = data.groupby(['DOLocationID']).payment_type.value_counts()
-    return risultato
+    indicirisultato = risultato.index.to_frame(name=['LocalId', 'Payment'])
+    risultato = pd.concat([indicirisultato, risultato], axis=1)
+    definitiva = pd.merge(left=risultato, right=zone_lookup, left_on="LocalId", right_on='LocationID', how='outer')
+    definitiva2 = definitiva[['Payment','payment_type','Borough']]
+    sum_payment = definitiva2.query("Borough==@Borough_val and Payment==@paymentint").payment_type.sum()
+
+    return sum_payment
