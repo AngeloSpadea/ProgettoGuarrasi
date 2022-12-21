@@ -27,7 +27,7 @@ def pagamenti(data,lista_indici):
     """
     dictionary={}
     for i in lista_indici:
-        pagamento=(data.payment_type==i).sum()
+        pagamento=(data[0].payment_type==i).sum()
         if pagamento!=0:    
             dictionary[i]=pagamento    
     return dictionary

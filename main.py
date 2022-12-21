@@ -29,13 +29,20 @@ data=carico_dati(anno,mese)
 
 #h=pulizia_dati(c)
 
-#trova_pagamento_piu_utilizzato(h)
-
-#trova_pagamento_meno_utilizzato(h)
-
 #chiamo la funzione per caricarmi i risultati della ricerca
 paymentint = 1
 risultato = conta_i_pagamenti_per_distretti(data,Borough_val,paymentint)
+
+#ho creato una lista di indici dei pagamenti provvisoria
+lista_indici=[0,1,2,3,4,5,6]
+
+#crea un dizionario con gli indici come chiave e con il numero delle occorenze come valori
+dictionary=pagamenti(data, lista_indici)
+#trova il pagamento il codice del pagamento più e meno utilizzato
+k=analisi_pagamenti_utilizzati(dictionary)
+
+#visualizza l'istogramma
+visualizza_pagamenti(dictionary,k)
 
 
 print(risultato)
