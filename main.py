@@ -10,9 +10,9 @@ import pandas as pd
 from conta_i_pagamenti_per_distretti import conta_i_pagamenti_per_distretti
 from carico_dati import carico_dati
 from pulizia_dati import pulizia_dati
-from trova_pagamento_piu_utilizzato import trova_pagamento_piu_utilizzato
-from trova_pagamento_meno_utilizzato import trova_pagamento_meno_utilizzato
-from visualizza_pagamenti_in_ogni_distretto import visualizza_pagamenti_in_ogni_distretto
+from pagamenti import pagamenti
+from analisi_pagamenti_utilizzati import analisi_pagamenti_utilizzati
+from visualizza_pagamenti import visualizza_pagamenti
 
 
 #richiedo all'utente l'inserimento dei possibili input della funzione 
