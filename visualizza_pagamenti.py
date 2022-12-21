@@ -4,6 +4,8 @@ Created on Wed Dec 21 21:23:33 2022
 
 @author: angel
 """
+import numpy as np
+import matplotlib.pyplot as plt
 
 def visualizza_pagamenti(dictionary, pagamenti_values):
     """
@@ -33,4 +35,21 @@ def visualizza_pagamenti(dictionary, pagamenti_values):
     None.
 
     """
-    pass
+    labels=np.log(list(dictionary.values()))    
+    values=list(dictionary.keys())
+    # labels: nome barre
+    # values: altezza barre
+
+    plt.figure(figsize=(5,3),)
+
+    bars = plt.bar(values, labels)
+    # hatch: texture
+    bars[values.index(pagamenti_values[0])].set_hatch("*")
+    bars[values.index(pagamenti_values[1])].set_hatch("/")
+    # oppure
+    #patterns = ['/', 'O', '*']
+    #for i, bar in enumerate(bars):
+        #bar.set_hatch(patterns[i])
+
+    plt.savefig('barchart.png', dpi=300)
+    plt.show()
