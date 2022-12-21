@@ -25,15 +25,19 @@ def carico_dati(anno,mese):
 
     Returns
     -------
-    il dataset grezzo e una stringa nella quale c'è un messaggio 
+    il dataset grezzo e il file zone_lookup dove ci sono i nomi dei quartieri e i loro codici
+    una stringa nella quale c'è un messaggio 
     nel quale viene specificato l'esito della funzione. Ad esempio 
     "Ho caricato i dati correttamente" o "Non sono riuscito a caricare i dati"
 
     """
     anno = '2022'
     mese = '04'
-    print(f'./dati/{anno}/yellow_tripdata_{anno}-{mese}.parquet')
-    data = pd.read_parquet(f'./dati/{anno}/yellow_tripdata_{anno}-{mese}.parquet')
-    
 
-    return data
+    data = pd.read_parquet(f'./dati/anni/{anno}/yellow_tripdata_{anno}-{mese}.parquet')
+    #carico la tabella con i nomi dei quartieri e il loro codice
+    zone_lookup = pd.read_csv("./dati/tabelle_di_conversione/taxi+_zone_lookup.csv", index_col="LocationID")
+    
+    print('Ho caricato i dati correttamente')    
+
+    return data, zone_lookup

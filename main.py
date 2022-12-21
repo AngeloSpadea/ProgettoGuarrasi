@@ -17,16 +17,15 @@ from visualizza_pagamenti_in_ogni_distretto import visualizza_pagamenti_in_ogni_
 
 #richiedo all'utente l'inserimento dei possibili input della funzione 
 anno=input("Inserire l'anno su cui si vuole fare l'analisi ")
-mese=input("Inserire il mesej su cui si vuole fare l'analisi ")
+mese=input("Inserire il mese su cui si vuole fare l'analisi ")
 bourough=input("Inserire il distretto su cui si vuole fare l'analisi ")
 
 anno = '2022'
 mese = '04'
 Borough_val = 'Bronx'
-#carico il mese richiesto in @data prendendolo dalla cartella dati/*
+#carico il dataset grezzo (da cartella ./dati/anni/{anno}) e la tabella con 
+#i codici dei distretti (da cartella ./dati/tabelle_di_conversione/) in @data
 data=carico_dati(anno,mese)
-#carico la tabella con i nomi dei quartieri e il loro codice
-zone_lookup = pd.read_csv("./dati/taxi+_zone_lookup.csv", index_col="LocationID")
 
 #h=pulizia_dati(c)
 
