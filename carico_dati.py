@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Dec  7 17:55:42 2022
+Created on Wen Dec  21 02:43:23 2022
 
-@author: angel
+@author: antonio
 """
-
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 def carico_dati(anno,mese,bourogh):
     """
     
@@ -14,7 +16,7 @@ def carico_dati(anno,mese,bourogh):
     anno : int
          rappresenta l'anno su cui voglio svolgere l'analisi.
          l'int deve essere di fortmato **** (Esempio: 2022).
-    mese : int
+    mese : string
         rappresenta il numero del mese su cui voglio svolgere l'analisi.
         l'int deve essere di fortmato ** (Esempio: 04)
     bourogh : string
@@ -27,4 +29,10 @@ def carico_dati(anno,mese,bourogh):
     "Ho caricato i dati correttamente" o "Non sono riuscito a caricare i dati"
 
     """
-    pass
+    
+    mese = '04'
+    print(f'./dati/2022/yellow_tripdata_2022-{mese}.parquet')
+    data = pd.read_parquet(f'./dati/2022/yellow_tripdata_2022-{mese}.parquet')
+    
+
+    return data
