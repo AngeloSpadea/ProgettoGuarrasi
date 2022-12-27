@@ -9,3 +9,4 @@ dati/*
 .venv/*
 .conda/*
 capomastro angelo.ipynb
+*.png
