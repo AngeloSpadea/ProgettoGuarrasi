@@ -51,5 +51,5 @@ def visualizza_pagamenti(dictionary, pagamenti_values):
     #for i, bar in enumerate(bars):
         #bar.set_hatch(patterns[i])
 
-    plt.savefig('barchart.png', dpi=300)
+    plt.savefig('./output/barchart.png', dpi=300)
     plt.show()
