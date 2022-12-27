@@ -7,16 +7,19 @@ Created on Tue Dec 27 15:48:47 2022
 
 import argparse
 
-parser=argparse.ArgumentParser(description='gestione taxi')
+def gestione_input():
 
-parser.add_argument('mese',help="inserire il mese sottoforma di stringa. per esempio '01' '02' '03' ...",
-                    type=str,default='04')
-
-parser.add_argument('anno',help="inserire l'anno sottoforma di stringa. per esempio '2021' '2022'",
-                    type=str,default='2022')
-
-if __name__=='__main__':
+    parser=argparse.ArgumentParser(description='gestione taxi')
+    
+    parser.add_argument('mese',help="inserire il mese sottoforma di stringa. per esempio '01' '02' '03' ...",
+                        type=str,default='04')
+    
+    parser.add_argument('anno',help="inserire l'anno sottoforma di stringa. per esempio '2021' '2022'",
+                        type=str,default='2022')
+    
     args=parser.parse_args()
-    print(f'argument2 {args}')
-    print(f'argument1 {args.anno}')
-    print(f'argument1 {args.mese}')
+    anno=args.anno
+    mese=args.mese
+    return mese,anno
+    
+prova=gestione_input()

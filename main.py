@@ -13,6 +13,7 @@ from pulizia_dati import pulizia_dati
 from pagamenti import pagamenti
 from analisi_pagamenti_utilizzati import analisi_pagamenti_utilizzati
 from visualizza_pagamenti import visualizza_pagamenti
+from gestione_input import gestione_input
 
 
 #richiedo all'utente l'inserimento dei possibili input della funzione 
@@ -20,8 +21,10 @@ anno=input("Inserire l'anno su cui si vuole fare l'analisi ")
 mese=input("Inserire il mese su cui si vuole fare l'analisi ")
 bourough=input("Inserire il distretto su cui si vuole fare l'analisi ")
 
-anno = '2022'
-mese = '04'
+ingressi=gestione_input()
+    
+anno = ingressi[1]
+mese = ingressi[0]
 Borough_val = 'Bronx'
 #carico il dataset grezzo (da cartella ./dati/anni/{anno}) e la tabella con 
 #i codici dei distretti (da cartella ./dati/tabelle_di_conversione/) in @data
