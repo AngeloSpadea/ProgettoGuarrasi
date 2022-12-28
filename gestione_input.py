@@ -14,12 +14,17 @@ def gestione_input():
     parser.add_argument('mese',help="inserire il mese sottoforma di stringa. per esempio '01' '02' '03' ...",
                         type=str,default='04')
     
-    parser.add_argument('anno',help="inserire l'anno sottoforma di stringa. per esempio '2021' '2022'",
+    parser.add_argument('anno',help="inserire l'anno per esempio '2021' '2022'",
                         type=str,default='2022')
+    
+    parser.add_argument('distretto',help="inserire il distretto su cui si vuole fare l'analisi ",
+                        type=str,default='Bronx')
+    
     
     args=parser.parse_args()
     anno=args.anno
     mese=args.mese
-    return mese,anno
+    distretto=args.distretto
+    return mese,anno,distretto
     
 prova=gestione_input()
