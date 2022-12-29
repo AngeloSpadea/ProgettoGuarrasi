@@ -27,7 +27,9 @@ def analisi_pagamenti_utilizzati(dictionary):
                 l'indice del pagamento meno presente.
 
     """
-    max_pagamento=max(dictionary, key=dictionary.get)
-    min_pagamento=min(dictionary, key=dictionary.get)
-    print("Il valore più presente è "+str(max_pagamento)+" con "+str(dictionary[max_pagamento])+" occorenze","Il valore meno presente è "+str(min_pagamento)+" con "+str(dictionary[min_pagamento])+" occorenze")
-    return max_pagamento,min_pagamento
+    pagamento_id_max=dictionary.idxmax()
+    pagamento_id_min=dictionary.idxmin()
+    occorenze_max=max(dictionary)
+    occorenze_min=min(dictionary)
+    print("Il valore più presente è "+str(pagamento_id_max)+" con "+str(occorenze_max)+" occorenze","Il valore meno presente è "+str(pagamento_id_min)+" con "+str(occorenze_min)+" occorenze")
+    return "Ho fatto"

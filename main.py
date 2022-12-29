@@ -7,11 +7,11 @@ Created on Wen Dec  21 02:43:23 2022
 """
 
 from carico_dati import carico_dati
-from pagamenti import pagamenti
 from analisi_pagamenti_utilizzati import analisi_pagamenti_utilizzati
 from visualizza_pagamenti import visualizza_pagamenti
 from gestione_input import gestione_input
 from visualizza_pagamenti_in_ogni_distretto import visualizza_pagamenti_in_ogni_distretto
+from conta_i_pagamenti_per_distretti import conta_i_pagamenti_per_distretti
 
 #funzione che gestisce gli ingressi in particolare restituisce una tupla che ha
 #come elemento 0 il mese,elemento 1 l'anno, elemento 2 il distretto
@@ -30,12 +30,12 @@ data=carico_dati(anno,mese)
 lista_indici=[0,1,2,3,4,5,6]
 
 #crea un dizionario con gli indici come chiave e con il numero delle occorenze come valori
-dictionary=pagamenti(data, lista_indici)
+dictionary=conta_i_pagamenti_per_distretti(data, Borough_val)
 #trova il pagamento il codice del pagamento più e meno utilizzato
 k=analisi_pagamenti_utilizzati(dictionary)
 
 #visualizza l'istogramma
-visualizza_pagamenti(dictionary,k)
+visualizza_pagamenti(dictionary)
 
 #visualizza i grafici a torta per ogni distretto nella Bourogh_list
 Bourogh_list=['Bronx','Brooklyn','EWR','Manhattan','Queens','Staten Island','Unknown']
