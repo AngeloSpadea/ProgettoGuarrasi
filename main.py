@@ -6,10 +6,7 @@ Created on Wen Dec  21 02:43:23 2022
 @author: Antonio
 """
 
-import pandas as pd
-from conta_i_pagamenti_per_distretti import conta_i_pagamenti_per_distretti
 from carico_dati import carico_dati
-from pulizia_dati import pulizia_dati
 from pagamenti import pagamenti
 from analisi_pagamenti_utilizzati import analisi_pagamenti_utilizzati
 from visualizza_pagamenti import visualizza_pagamenti
