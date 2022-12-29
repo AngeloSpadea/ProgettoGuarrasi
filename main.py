@@ -29,8 +29,7 @@ data=carico_dati(anno,mese)
 #h=pulizia_dati(c)
 
 #chiamo la funzione per caricarmi i risultati della ricerca
-paymentint = 1
-risultato = conta_i_pagamenti_per_distretti(data,Borough_val,paymentint)
+risultato = conta_i_pagamenti_per_distretti(data,Borough_val)
 
 #ho creato una lista di indici dei pagamenti provvisoria
 lista_indici=[0,1,2,3,4,5,6]
