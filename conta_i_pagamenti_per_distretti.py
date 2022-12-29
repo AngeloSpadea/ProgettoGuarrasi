@@ -38,6 +38,6 @@ def conta_i_pagamenti_per_distretti(data,Borough_val,paymentint):
     risultato = pd.concat([indicirisultato, risultato], axis=1)
     definitiva = pd.merge(left=risultato, right=data[1], left_on="LocalId", right_on='LocationID', how='outer')
     definitiva2 = definitiva[['Payment','payment_type','Borough']]
-    sum_payment = definitiva2.query("Borough==@Borough_val and Payment==@paymentint").payment_type.sum()
+    sum_payment = definitiva2.query("Borough==@Borough_val").groupby(['Payment']).payment_type.sum()
 
     return sum_payment
