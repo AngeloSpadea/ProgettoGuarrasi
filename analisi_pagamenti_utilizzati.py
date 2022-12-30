@@ -36,5 +36,5 @@ def analisi_pagamenti_utilizzati(dictionary):
     pagamento_id_min=dictionary.idxmin()
     occorrenze_max=max(dictionary)
     occorrenze_min=min(dictionary)
-    print("Il valore più presente è "+str(pagamento_id_max)+" con "+str(occorrenze_max)+" occorenze","Il valore meno presente è "+str(pagamento_id_min)+" con "+str(occorrenze_min)+" occorenze")
+    
     return pagamento_id_max,pagamento_id_min,occorrenze_max,occorrenze_min

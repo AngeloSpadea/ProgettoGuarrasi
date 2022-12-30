@@ -35,16 +35,18 @@ def visualizza_pagamenti(dictionary):
     # values: altezza barre
 
     plt.figure(figsize=(5,3),)
-    bars = pd.Series(dictionary)
     colors=['black', 'black', 'black', 'black', 'black', 'black']
-    colors[int(bars.idxmax())]='red'
-    colors[int(bars.idxmin())]='cyan'
+    colors[int(dictionary.idxmax())]='red'
+    colors[int(dictionary.idxmin())]='cyan'
+    lista_conversione=['Void trip','Credit card','Cash','No charge','Dispute','Unknown']
+    dictionary.index=lista_conversione[:len(dictionary)]
+    bars = pd.Series(dictionary)
     
     bars.plot.bar(color=colors)  
 
     plt.savefig('./output/barchart.png', dpi=300)
     plt.show()
-
+    
 if __name__ == '__main__':
     
     Bourogh_list=['Bronx','Brooklyn','EWR','Manhattan','Queens','Staten Island','Unknown']
