@@ -33,13 +33,36 @@ def conta_i_pagamenti_per_distretti(data,Borough_val = ''):
         x = Taxi Zone e y = rappresenta il codice di pagamento
 
     """
+    #presi i dati dalla tupla dati[0] effettuiamo il conteggio dei "payment_type" 
+    #per ogni DOLocationID con un indice "DOLocationID,payment_type"
     risultato = data[0].groupby(['DOLocationID']).payment_type.value_counts()
+
+    #in questa fase andiamo a modificare l'indice "DOLocationID,payment_type"
+    #un doppio indice LocalId e Payment
+    #per DOLocationID rinominato ---> LocalId 
+    #per payment_type rinominato ---> Payment
     indicirisultato = risultato.index.to_frame(name=['LocalId', 'Payment'])
+
+    #Andiamo ad abinare i due nuovi indici con i risultati trovati nella variabile
+    #risultato, che ricordiamo è la somma payment_type gruppati per DOLocationID
     risultato = pd.concat([indicirisultato, risultato], axis=1)
+
+    #Ora tramite i codici di LocalId, che sono i codici di zona mergiamo la tabella
+    #con i codici di zona e i nomi dei quartieri che si trova nella tupla data[1]
     definitiva = pd.merge(left=risultato, right=data[1], left_on="LocalId", right_on='LocationID', how='outer')
+    
+    #In questa fase prendiamo poi solo le colonne che sono necessarie per l'analisi
     definitiva2 = definitiva[['Payment','payment_type','Borough']]
-    if Borough_val!='':        
+
+
+    #-- Codice per la ricerca --
+    if Borough_val!='':    
+        #-- Ricerca con parametro opzionale del quartiere -- 
+        #vengono ritrnati le somme dei "payment_type" gruppati per quartiere
         sum_payment = definitiva2.query("Borough==@Borough_val").groupby(['Payment']).payment_type.sum()
     else: 
+        #-- Ricerca senza parametro opzionale del quartiere -- 
+        #vengono ritrnati le somme dei "payment_type" generali 
         sum_payment = definitiva2.groupby(['Payment']).payment_type.sum()
+        
     return sum_payment
