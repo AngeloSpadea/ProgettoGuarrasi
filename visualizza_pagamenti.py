@@ -34,18 +34,21 @@ def visualizza_pagamenti(dictionary):
     # labels: nome barre
     # values: altezza barre
 
-    plt.figure(figsize=(5,3),)
+    plt.figure(figsize=(10,10),)
     colors=['black', 'black', 'black', 'black', 'black', 'black']
     colors[int(dictionary.idxmax())]='red'
     colors[int(dictionary.idxmin())]='cyan'
     lista_conversione=['Void trip','Credit card','Cash','No charge','Dispute','Unknown']
     dictionary.index=lista_conversione[:len(dictionary)]
     bars = pd.Series(dictionary)
-    
-    bars.plot.bar(color=colors)  
+    explode=[0]*len(bars)
+    explode[lista_conversione.index(bars.idxmin())]=.6
+    plot=bars.plot.pie(autopct='%.2f %%',pctdistance=0.6,explode=explode) 
+    plot.set(ylabel=None)
 
-    plt.savefig('./output/barchart.png', dpi=300)
+    plt.savefig('./output/barchart.png', dpi=100)
     plt.show()
+    return explode
     
 if __name__ == '__main__':
     

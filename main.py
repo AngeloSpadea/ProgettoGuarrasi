@@ -26,7 +26,7 @@ Borough_val = ingressi[2]
 data=carico_dati(anno,mese)
 numero_dati=len(data)
 #crea un dizionario con gli indici come chiave e con il numero delle occorenze come valori
-dictionary=conta_i_pagamenti_per_distretti(data)
+dictionary=conta_i_pagamenti_per_distretti(data,Borough_val)
 #trova il pagamento il codice del pagamento più e meno utilizzato
 k=analisi_pagamenti_utilizzati(dictionary)
 

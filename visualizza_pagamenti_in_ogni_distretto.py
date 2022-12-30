@@ -48,14 +48,14 @@ def visualizza_pagamenti_in_ogni_distretto(data,Bourogh_list):
         plt.subplot(3, 3, count)        
         plt.title(i)
         df = pd.Series(total[i])
-        plot=df.plot.pie(autopct='%.2f %%',pctdistance=0.8)
-        plot.set(ylabel=None)
+        df.plot.barh()
+        #plot=df.plot.pie(autopct='%.2f %%',explode=explode,pctdistance=0.8)
+        #plot.set(ylabel=None)
         # a1.pie(labels, labels=values, explode=explode,pctdistance=0.8, autopct='%.2f %%')
         count+=1
     plt.savefig('./output/grafici_torta.png', dpi=100)
     plt.show()
-    
-    return total
+
 
 if __name__ == '__main__':
     
