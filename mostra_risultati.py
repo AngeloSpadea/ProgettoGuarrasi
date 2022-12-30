@@ -6,7 +6,33 @@ Created on Tue Dec 27 21:22:44 2022
 """
 from fpdf import FPDF
 
-def mostra_risultati():
+def mostra_risultati(anno,pagamento_id_max,pagamento_id_min,occorrenze_max,occorrenze_min,mese='',Bourogh_val=''):
+    """
+    La funzione presi i dati analizzati crea e salva in ./output un pdf contenente
+    la descrizione del lavoro svolto dal nome Risultati.pdf    
+
+    Parameters
+    ----------
+    anno : str
+        l'anno su cui stiamo svolgendo l'analisi.
+    pagamento_id_max : float
+        DESCRIPTION.
+    pagamento_id_min : float
+        DESCRIPTION.
+    occorrenze_max : float
+        DESCRIPTION.
+    occorrenze_min : float
+        DESCRIPTION.
+    mese : str, optional
+        Il mese su cui si sta svolgendo l'analisi. The default is ''.
+    Bourogh_val : str, optional
+        Il distretto su cui si sta svolgendo l'analisi. The default is ''.
+
+    Returns
+    -------
+    None.
+
+    """
     pdf = FPDF()
      
     # Add a page
@@ -37,7 +63,7 @@ def mostra_risultati():
     pdf.cell(200, 190, txt = "I grafici a torta per ogni distretto",
               align = 'C')
     # save the pdf with name .pdf
-    pdf.output("./output/risultati.pdf") 
+    pdf.output("./output/Risultati.pdf") 
     
     print("Report pronto")
     
