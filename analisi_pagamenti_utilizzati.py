@@ -8,8 +8,7 @@ Created on Wed Dec 21 21:20:06 2022
 def analisi_pagamenti_utilizzati(dictionary):
     """
     Cerca in dictionary il valore con più e meno occorrenze e ne restituisce
-    il relativo codice
-
+    il relativo codice con il numero di occorrenze relativo
     Parameters
     ----------
     dictionary : dict
@@ -20,16 +19,22 @@ def analisi_pagamenti_utilizzati(dictionary):
     -------
     tupla di due elementi:
         primo elemento
-            max_pagamento : int
+            pagamento_id_max: int
                 l'indice del pagamento più presente.
         secondo elemento
-            min_pagamento : int
+            pagamento_id_min : int
                 l'indice del pagamento meno presente.
+        terzo elemento
+            occorrenze_max: int
+                il numero delle occorrenze del pagamento più presente.
+        quarto elemento
+            occorrenze_min : int
+                il numero delle occorrenze del pagamento meno presente.
 
     """
     pagamento_id_max=dictionary.idxmax()
     pagamento_id_min=dictionary.idxmin()
-    occorenze_max=max(dictionary)
-    occorenze_min=min(dictionary)
-    print("Il valore più presente è "+str(pagamento_id_max)+" con "+str(occorenze_max)+" occorenze","Il valore meno presente è "+str(pagamento_id_min)+" con "+str(occorenze_min)+" occorenze")
-    return "Ho fatto"
+    occorrenze_max=max(dictionary)
+    occorrenze_min=min(dictionary)
+    print("Il valore più presente è "+str(pagamento_id_max)+" con "+str(occorrenze_max)+" occorenze","Il valore meno presente è "+str(pagamento_id_min)+" con "+str(occorrenze_min)+" occorenze")
+    return pagamento_id_max,pagamento_id_min,occorrenze_max,occorrenze_min
