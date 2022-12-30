@@ -24,7 +24,7 @@ Borough_val = ingressi[2]
 #carico il dataset grezzo (da cartella ./dati/anni/{anno}) e la tabella con 
 #i codici dei distretti (da cartella ./dati/tabelle_di_conversione/) in @data
 data=carico_dati(anno,mese)
-numero_dati=len(data)
+numero_dati=data[2]
 #crea un dizionario con gli indici come chiave e con il numero delle occorenze come valori
 dictionary=conta_i_pagamenti_per_distretti(data,Borough_val)
 #trova il pagamento il codice del pagamento più e meno utilizzato
