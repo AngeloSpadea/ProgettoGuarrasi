@@ -17,18 +17,18 @@ def analisi_pagamenti_utilizzati(dictionary):
 
     Returns
     -------
-    tupla di due elementi:
+    tupla di quattro elementi:
         primo elemento
-            pagamento_id_max: int
+            pagamento_id_max: float
                 l'indice del pagamento più presente.
         secondo elemento
-            pagamento_id_min : int
+            pagamento_id_min : float
                 l'indice del pagamento meno presente.
         terzo elemento
-            occorrenze_max: int
+            occorrenze_max: float
                 il numero delle occorrenze del pagamento più presente.
         quarto elemento
-            occorrenze_min : int
+            occorrenze_min : float
                 il numero delle occorrenze del pagamento meno presente.
 
     """

@@ -12,6 +12,7 @@ from visualizza_pagamenti import visualizza_pagamenti
 from gestione_input import gestione_input
 from visualizza_pagamenti_in_ogni_distretto import visualizza_pagamenti_in_ogni_distretto
 from conta_i_pagamenti_per_distretti import conta_i_pagamenti_per_distretti
+from mostra_risultati import mostra_risultati
 
 #funzione che gestisce gli ingressi in particolare restituisce una tupla che ha
 #come elemento 0 il mese,elemento 1 l'anno, elemento 2 il distretto
@@ -22,7 +23,7 @@ mese = ingressi[0]
 Borough_val = ingressi[2]
 #carico il dataset grezzo (da cartella ./dati/anni/{anno}) e la tabella con 
 #i codici dei distretti (da cartella ./dati/tabelle_di_conversione/) in @data
-data=carico_dati(anno)
+data=carico_dati(anno,mese)
 
 #h=pulizia_dati(c)
 
@@ -41,3 +42,4 @@ visualizza_pagamenti(dictionary)
 Bourogh_list=['Bronx','Brooklyn','EWR','Manhattan','Queens','Staten Island','Unknown']
 visualizza_pagamenti_in_ogni_distretto(data,Bourogh_list)
 
+mostra_risultati(anno,k,mese,Borough_val)

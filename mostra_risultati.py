@@ -6,7 +6,7 @@ Created on Tue Dec 27 21:22:44 2022
 """
 from fpdf import FPDF
 
-def mostra_risultati(anno,pagamento_id_max,pagamento_id_min,occorrenze_max,occorrenze_min,mese='',Bourogh_val=''):
+def mostra_risultati(anno,tupla,mese='',Bourogh_val=''):
     """
     La funzione presi i dati analizzati crea e salva in ./output un pdf contenente
     la descrizione del lavoro svolto dal nome Risultati.pdf    
@@ -15,14 +15,15 @@ def mostra_risultati(anno,pagamento_id_max,pagamento_id_min,occorrenze_max,occor
     ----------
     anno : str
         l'anno su cui stiamo svolgendo l'analisi.
-    pagamento_id_max : float
-        DESCRIPTION.
-    pagamento_id_min : float
-        DESCRIPTION.
-    occorrenze_max : float
-        DESCRIPTION.
-    occorrenze_min : float
-        DESCRIPTION.
+    tupla : tupla
+        pagamento_id_max : float
+            l'indice del pagamento più presente.
+        pagamento_id_min : float
+            l'indice del pagamento meno presente.
+        occorrenze_max : float
+            il numero delle occorrenze del pagamento più presente.
+        occorrenze_min : float
+            il numero delle occorrenze del pagamento meno presente.
     mese : str, optional
         Il mese su cui si sta svolgendo l'analisi. The default is ''.
     Bourogh_val : str, optional
