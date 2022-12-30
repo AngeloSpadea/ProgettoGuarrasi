@@ -12,8 +12,8 @@ from conta_i_pagamenti_per_distretti import conta_i_pagamenti_per_distretti
 
 def visualizza_pagamenti(dictionary):
     """
-    Dati il dictionary e i pagamenti_values crea e salva in ./output una figura
-    con un istogramma dal nome barchart.png.
+    Dati il dictionary e i pagamenti_values crea e salva in ./output un grafico a
+    torta dal nome barchart.png.
     Istogramma: 
         asse x: ci sono i codici dei pagamenti
         asse y: ci sono le occorrenze in scala logaritimica

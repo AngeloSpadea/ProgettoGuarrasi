@@ -11,7 +11,8 @@ from carico_dati import carico_dati
 
 def visualizza_pagamenti_in_ogni_distretto(data,Bourogh_list):
     """
-    
+    La funzione crea dei barchart per ogni distretto e li salva in ./output in 
+    un immagine dal nome grafici_torta.png
 
     Parameters
     ----------
