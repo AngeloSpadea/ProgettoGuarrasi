@@ -2,7 +2,6 @@
 """
 Created on Wen Dec  21 02:43:23 2022
 
-@author: Angelo
 @author: Antonio
 """
 import matplotlib.pyplot as plt
@@ -32,33 +31,43 @@ def carico_dati(anno,mese=''):
 
     """
     if mese!='':
-        #--carico il file parquet dell'anno e mese desiderato--
-        data = pd.read_parquet(f'./dati/anni/{anno}/yellow_tripdata_{anno}-{mese}.parquet')
-        #--carico la tabella con i nomi dei quartieri e il loro codice--
-        zone_lookup = pd.read_csv("./dati/tabelle_di_conversione/taxi+_zone_lookup.csv", index_col="LocationID")
-        zone_lookup = zone_lookup[['Borough']] 
-        print('Ho caricato i dati correttamente')  
+        try:
+            #--carico il file parquet dell'anno e mese desiderato--
+            data = pd.read_parquet(f'./dati/anni/{anno}/yellow_tripdata_{anno}-{mese}.parquet')
+            #--carico la tabella con i nomi dei quartieri e il loro codice--
+            zone_lookup = pd.read_csv("./dati/tabelle_di_conversione/taxi+_zone_lookup.csv", index_col="LocationID")
+            zone_lookup = zone_lookup[['Borough']] 
+            print('Ho caricato i dati correttamente')
+        except FileNotFoundError:
+            print('Non sono riuscito a caricare i dati')
+            print("Controllare di avere disposto i file come indicato nel Readme")
+            exit()
     else:
-        #--carico la tabella con i nomi dei quartieri e il loro codice--
-        zone_lookup = pd.read_csv("./dati/tabelle_di_conversione/taxi+_zone_lookup.csv", index_col="LocationID")
-        zone_lookup = zone_lookup[['Borough']] 
-        print('Ho caricato i dati correttamente')
+        try:
+            #--carico la tabella con i nomi dei quartieri e il loro codice--
+            zone_lookup = pd.read_csv("./dati/tabelle_di_conversione/taxi+_zone_lookup.csv", index_col="LocationID")
+            zone_lookup = zone_lookup[['Borough']] 
+            print('Ho caricato i dati correttamente')
 
-        #-- ciclo for per caricare i file parquet all'interno di una cartella anno desiderata--
-        path="./dati/anni/2022"
-        parquet_files = glob.glob(os.path.join(path, "*.parquet"))   
-        daticarico = []        
-        for f in parquet_files:          
-            # read the csv file
-            resulto = pd.read_parquet(f)
-            daticarico.append(resulto)
-            # print the location and filename
-            print('Location:', f)
-            print('File Name:', f.split("\\")[-1])          
-            # print the content
-            print('Content:')
-        resulto = pd.concat(daticarico)
-        data = resulto
-        print('Ho caricato i dati correttamente')    
+            #-- ciclo for per caricare i file parquet all'interno di una cartella anno desiderata--
+            path="./dati/anni/2022"
+            parquet_files = glob.glob(os.path.join(path, "*.parquet"))   
+            daticarico = []        
+            for f in parquet_files:          
+                # read the csv file
+                resulto = pd.read_parquet(f)
+                daticarico.append(resulto)
+                # print the location and filename
+                print('Location:', f)
+                print('File Name:', f.split("\\")[-1])          
+                # print the content
+                print('Content:')
+            resulto = pd.concat(daticarico)
+            data = resulto
+            print('Ho caricato i dati correttamente')
+        except FileNotFoundError:
+            print('Non sono riuscito a caricare i dati')
+            print("Controllare di avere disposto i file come indicato nel Readme") 
+            exit()
 
     return data, zone_lookup
