@@ -51,12 +51,15 @@ def visualizza_pagamenti_in_ogni_distretto(data,Bourogh_list):
     plt.savefig('./output/grafici_torta.png', dpi=100)
     plt.show()
     
-Bourogh_list=['Bronx','Brooklyn','EWR','Manhattan','Queens','Staten Island','Unknown']
-anno = '2022'
-mese = '01'
-data=carico_dati(anno,mese)
-Borough_val = 'Bronx'
-total=visualizza_pagamenti_in_ogni_distretto(data,Bourogh_list)
+    
+if __name__ == '__main__':
+    
+    Bourogh_list=['Bronx','Brooklyn','EWR','Manhattan','Queens','Staten Island','Unknown']
+    anno = '2022'
+    mese = '01'
+    data=carico_dati(anno,mese)
+    Borough_val = 'Bronx'
+    total=visualizza_pagamenti_in_ogni_distretto(data,Bourogh_list)
 
 
 

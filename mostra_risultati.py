@@ -33,9 +33,14 @@ def mostra_risultati():
     pdf.image('./output/grafici_torta.png',w=200, x=0, y=120)
     
     pdf.set_font("Arial", size = 20)
+    
     pdf.cell(200, 190, txt = "I grafici a torta per ogni distretto",
               align = 'C')
     # save the pdf with name .pdf
     pdf.output("./output/risultati.pdf") 
     
-mostra_risultati()
+    print("Report pronto")
+    
+if __name__ == '__main__':    
+    
+    mostra_risultati()
