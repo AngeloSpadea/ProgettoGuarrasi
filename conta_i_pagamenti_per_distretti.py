@@ -31,6 +31,10 @@ def conta_i_pagamenti_per_distretti(data,Borough_val = ''):
     -------
     risultato : Series dove come indice abbiamo (x,y) 
         x = Taxi Zone e y = rappresenta il codice di pagamento
+    
+    Errors
+    -------
+    Se non si inserisce un quartiere valido restituisce errore
 
     """
     #presi i dati dalla tupla dati[0] effettuiamo il conteggio dei "payment_type" 
@@ -56,10 +60,16 @@ def conta_i_pagamenti_per_distretti(data,Borough_val = ''):
 
 
     #-- Codice per la ricerca --
-    if Borough_val!='':    
-        #-- Ricerca con parametro opzionale del quartiere -- 
-        #vengono ritrnati le somme dei "payment_type" gruppati per quartiere
-        sum_payment = definitiva2.query("Borough==@Borough_val").groupby(['Payment']).payment_type.sum()
+    if Borough_val!='':
+        try:    
+            #-- Ricerca con parametro opzionale del quartiere -- 
+            #vengono ritrnati le somme dei "payment_type" gruppati per quartiere
+            sum_payment = definitiva2.query("Borough==@Borough_val").groupby(['Payment']).payment_type.sum()
+        except  pd.errors.UndefinedVariableError:
+            print("Quartiere inserito non valido")
+            print("I quartieri di NewYork sono: Bronx, Brooklyn, EWR, Manhattan, Queens , Staten Island")
+            print("Controlla di aver inserito la maiuscola nella prima lettera del quartiere oppure di aver inserito EWR tutto maiuscolo")
+            exit()
     else: 
         #-- Ricerca senza parametro opzionale del quartiere -- 
         #vengono ritrnati le somme dei "payment_type" generali 
