@@ -41,7 +41,7 @@ def mostra_risultati(anno,tupla,mese='',Bourogh_val=''):
      
     # imposto lo stile e la grandezza del font
     pdf.set_font("Arial", size = 20)
-     
+    
     # creo una cella
     pdf.cell(200, 10, txt = "Report per mese/anno e per distretto",
              ln = 1, align = 'C')

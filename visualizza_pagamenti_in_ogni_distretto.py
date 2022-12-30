@@ -24,16 +24,20 @@ def visualizza_pagamenti_in_ogni_distretto(data,Bourogh_list):
     distribuzioni dei vari pagamenti.
 
     """
+    lista_conversione=['Void trip','Credit card','Cash','No charge','Dispute','Unknown']
+    
     total={}
     for j in Bourogh_list:
         value=conta_i_pagamenti_per_distretti(data,j)
+        value.index=lista_conversione[:len(value)]
         total[j]=value
     #values=list(total['Bronx'].index)
     #labels=list(total['Bronx'][:])
-      
+     
     
     plt.figure(figsize=(15,15))
     plt.style.use('ggplot')
+    
     # axs[0, 0].plot(x, y)
     # axs[0, 1].plot(x, y, 'tab:orange')
     # axs[1, 0].plot(x, -y, 'tab:green')
@@ -51,7 +55,8 @@ def visualizza_pagamenti_in_ogni_distretto(data,Bourogh_list):
     plt.savefig('./output/grafici_torta.png', dpi=100)
     plt.show()
     
-    
+    return total
+
 if __name__ == '__main__':
     
     Bourogh_list=['Bronx','Brooklyn','EWR','Manhattan','Queens','Staten Island','Unknown']

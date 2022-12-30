@@ -25,11 +25,6 @@ Borough_val = ingressi[2]
 #i codici dei distretti (da cartella ./dati/tabelle_di_conversione/) in @data
 data=carico_dati(anno,mese)
 
-#h=pulizia_dati(c)
-
-#ho creato una lista di indici dei pagamenti provvisoria
-lista_indici=[0,1,2,3,4,5,6]
-
 #crea un dizionario con gli indici come chiave e con il numero delle occorenze come valori
 dictionary=conta_i_pagamenti_per_distretti(data)
 #trova il pagamento il codice del pagamento più e meno utilizzato
