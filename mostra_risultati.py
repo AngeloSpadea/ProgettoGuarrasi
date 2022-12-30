@@ -35,34 +35,35 @@ def mostra_risultati(anno,pagamento_id_max,pagamento_id_min,occorrenze_max,occor
     """
     pdf = FPDF()
      
-    # Add a page
+    # Aggiungo una pagina
     pdf.add_page()
      
-    # set style and size of font
-    # that you want in the pdf
+    # imposto lo stile e la grandezza del font
     pdf.set_font("Arial", size = 20)
      
-    # create a cell
+    # creo una cella
     pdf.cell(200, 10, txt = "Report per mese/anno e per distretto",
              ln = 1, align = 'C')
     
+    # imposto lo stile e la grandezza del font
     pdf.set_font("Arial", size = 10)
-    # add another cell
+    
+    # creo una cella
     pdf.cell(200, 10, txt = "Il pagamento più utilizzato è id con tot occorrenze e il pagamento meno utilizzato è id con tot occorenze",
              ln = 2, align = 'C')
     
-    # pdf.cell(200, 10, txt = "Il pagamento meno utilizzato è id con tot occorenze",
-    #          ln = 3, align = 'C')
-    
+    #Metto le immagini nel pdf
     pdf.image('./output/barchart.png',w=150, x=35, y=28)
-    
     pdf.image('./output/grafici_torta.png',w=200, x=0, y=120)
     
+    # imposto lo stile e la grandezza del font
     pdf.set_font("Arial", size = 20)
     
+    # creo una cella
     pdf.cell(200, 190, txt = "I grafici a torta per ogni distretto",
               align = 'C')
-    # save the pdf with name .pdf
+    
+    # salvo il pdf con il nome Risultati.pdf
     pdf.output("./output/Risultati.pdf") 
     
     print("Report pronto")
