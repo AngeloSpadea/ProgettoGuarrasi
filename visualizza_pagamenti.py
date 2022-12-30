@@ -46,7 +46,7 @@ def visualizza_pagamenti(dictionary):
 
     plt.savefig('./output/barchart.png', dpi=300)
     plt.show()
-    return bars
+    
 if __name__ == '__main__':
     
     Bourogh_list=['Bronx','Brooklyn','EWR','Manhattan','Queens','Staten Island','Unknown']

@@ -6,7 +6,7 @@ Created on Tue Dec 27 21:22:44 2022
 """
 from fpdf import FPDF
 
-def mostra_risultati(anno,tupla,mese='',Bourogh_val=''):
+def mostra_risultati(anno,numero_dati,tupla,mese='',Bourogh_val=''):
     """
     La funzione presi i dati analizzati crea e salva in ./output un pdf contenente
     la descrizione del lavoro svolto dal nome Risultati.pdf    
@@ -15,6 +15,8 @@ def mostra_risultati(anno,tupla,mese='',Bourogh_val=''):
     ----------
     anno : str
         l'anno su cui stiamo svolgendo l'analisi.
+    numero_dati: int
+        il numero di dati analizzati
     tupla : tupla
         pagamento_id_max : float
             l'indice del pagamento più presente.
@@ -34,6 +36,7 @@ def mostra_risultati(anno,tupla,mese='',Bourogh_val=''):
     None.
 
     """
+    lista_conversione=['Void trip','Credit card','Cash','No charge','Dispute','Unknown']
     pdf = FPDF()
      
     # Aggiungo una pagina
@@ -42,33 +45,43 @@ def mostra_risultati(anno,tupla,mese='',Bourogh_val=''):
     # imposto lo stile e la grandezza del font
     pdf.set_font("Arial", size = 20)
     
+    testo="Report per il "+mese+' '+anno+' '+Bourogh_val
     # creo una cella
-    pdf.cell(200, 10, txt = "Report per mese/anno e per distretto",
+    pdf.cell(200, 10, txt = testo,
              ln = 1, align = 'C')
     
     # imposto lo stile e la grandezza del font
     pdf.set_font("Arial", size = 10)
     
     # creo una cella
-    pdf.cell(200, 10, txt = "Il pagamento più utilizzato è id con tot occorrenze e il pagamento meno utilizzato è id con tot occorenze",
-             ln = 2, align = 'C')
+    pdf.cell(200, 10, txt = "Autori: Antonio Spadea, Angelo Spadea, Alberto Bianchi",
+             ln = 2, align= 'C')
+    
+    # creo una cella
+    pdf.cell(200, 10, txt = "Il programma sta analizzando un dataset di "+str(numero_dati)+" occorrenze",
+             ln = 3)
+    
+    testo1="Il valore più presente è "+lista_conversione[int(tupla[0])]+" con "+str(tupla[2])+" occorenze e il valore meno presente è "+lista_conversione[int(tupla[1])]+" con "+str(tupla[3])+" occorenze"
+    
+    # creo una cella
+    pdf.cell(200, 10, txt = testo1,
+             ln = 4)
     
     #Metto le immagini nel pdf
-    pdf.image('./output/barchart.png',w=150, x=35, y=28)
-    pdf.image('./output/grafici_torta.png',w=200, x=0, y=120)
+    pdf.image('./output/barchart.png',w=150, x=35, y=50)
+    
+    # Aggiungo una pagina
+    pdf.add_page()
+    pdf.image('./output/grafici_torta.png',w=200, x=0, y=50)
     
     # imposto lo stile e la grandezza del font
     pdf.set_font("Arial", size = 20)
     
     # creo una cella
-    pdf.cell(200, 190, txt = "I grafici a torta per ogni distretto",
+    pdf.cell(200, 10, txt = "I grafici a torta per ogni distretto",
               align = 'C')
     
     # salvo il pdf con il nome Risultati.pdf
     pdf.output("./output/Risultati.pdf") 
     
     print("Report pronto")
-    
-if __name__ == '__main__':    
-    
-    mostra_risultati()
