@@ -48,13 +48,18 @@ def visualizza_pagamenti_in_ogni_distretto(data,Bourogh_list):
         plot.set(ylabel=None)
         # a1.pie(labels, labels=values, explode=explode,pctdistance=0.8, autopct='%.2f %%')
         count+=1
-
-Bourogh_list=['Bronx','Brooklyn','EWR','Manhattan','Queens','Staten Island','Unknown']
-anno = '2022'
-mese = '01'
-data=carico_dati(anno,mese)
-Borough_val = 'Bronx'
-total=visualizza_pagamenti_in_ogni_distretto(data,Bourogh_list)
+    plt.savefig('./output/grafici_torta.png', dpi=100)
+    plt.show()
+    
+    
+if __name__ == '__main__':
+    
+    Bourogh_list=['Bronx','Brooklyn','EWR','Manhattan','Queens','Staten Island','Unknown']
+    anno = '2022'
+    mese = '01'
+    data=carico_dati(anno,mese)
+    Borough_val = 'Bronx'
+    total=visualizza_pagamenti_in_ogni_distretto(data,Bourogh_list)
 
 
 
