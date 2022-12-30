@@ -78,7 +78,7 @@ def mostra_risultati(anno,numero_dati,tupla,mese='',Bourogh_val=''):
     pdf.set_font("Arial", size = 20)
     
     # creo una cella
-    pdf.cell(200, 10, txt = "I grafici a torta per ogni distretto",
+    pdf.cell(200, 10, txt = "I barchart per ogni distretto",
               align = 'C')
     
     # salvo il pdf con il nome Risultati.pdf
