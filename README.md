@@ -5,6 +5,10 @@ In questo progetto svolgiamo un'analisi dei taxi a New York. In particolare, sia
 Per questo progetto utilizziamo i dati pubblici delle rotte dei Taxi a NYC disponibili su https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page. 
 Di default il programma utilizzerà dei dati relativi ai Yellow Taxi per l'anno 2022.
 
+## Research Questions (RQ)
+
+Qual è la modalità di pagamento più comune? E quella meno comune? Scoprite il modo in cui vengono eseguiti i pagamenti in ogni distretto e visualizzate il numero di pagamenti per ogni possibile mezzo. 
+
 ## Prima di cominciare
 
 Per preparare il programma al suo corretto utilizzo strutturare la directory, con i dati scaricabili dal link sopra, come segue
@@ -37,12 +41,15 @@ Per preparare il programma al suo corretto utilizzo strutturare la directory, co
     ├── ... *.py 
     ├── ... *.py 
     └── README.md
-## Input e Output
+
+## Avvio programma
 
 Il programma viene avviato da riga di comando eseguendo il seguente comando e inserendo un anno come parametro obbligatorio 
 ```sh
 python main.py 2022
 ```
+
+## Input e Output
 
 Il programma accetta da riga di comando i seguenti input e restituisce dei grafici da terminale, ogni risultato viene poi salvato nella cartella ./output insieme ad un **PDF** riepilogativo
 
@@ -69,7 +76,9 @@ python main.py help
 
 **Esempio Output**
 
-Terminato il caricamento dati e l'ellaborazione su di essi, il terminale stamperà a video i risultati della ricerca mostrando il metodo più e meno utilizzati. Nel primo grafico saranno restituiti i risultati che mostreranno anche le percentuali di tutti gli altri metodi di pagamento, mettendoli così a confronto.
+Terminato il caricamento dati e l'ellaborazione su di essi, il terminale stamperà a video i risultati della ricerca mostrando il metodo più e meno utilizzati. 
+
+Nel primo grafico saranno restituiti i risultati che mostreranno anche le percentuali di tutti gli altri metodi di pagamento, mettendoli così a confronto.
 
 ![image1](esempio_rm/barchart.png)
 
@@ -77,7 +86,7 @@ Nel secondo grafico verrà mostrato in dettaglio per ogni quartiere il risultato
 
 ![image2](esempio_rm/grafici_torta.png)
 
-Nel **PDF** verrà mostrato un report riepilogativo che mostra come titolo i parametri di ricerca utilizzati per l'annalisi, verranno mostrate il numero di occorenze su cui è stata fatta l'analisi e i risultati utilizzando. Seguiranno i grafici stampati da terminale
+Nel **PDF** verrà mostrato un report riepilogativo che mostra come titolo i parametri di ricerca utilizzati per l'annalisi, verranno mostrate il numero di occorenze su cui è stata fatta l'analisi e i risultati. Seguiranno i grafici stampati da terminale
 
 ![image3](esempio_rm/pdf1.png)
 ![image4](esempio_rm/pdf2.png)
