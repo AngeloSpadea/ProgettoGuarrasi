@@ -57,7 +57,7 @@ def visualizza_pagamenti_in_ogni_distretto(data,Bourogh_list):
     plt.savefig('./output/grafici.png', dpi=100)
     plt.show()
 
-
+#prove per vedere il corretto funzionamento di visualizza_pagamenti_in_ogni_distretto
 if __name__ == '__main__':
     
     Bourogh_list=['Bronx','Brooklyn','EWR','Manhattan','Queens','Staten Island','Unknown']
