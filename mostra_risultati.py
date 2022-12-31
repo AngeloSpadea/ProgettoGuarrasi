@@ -72,7 +72,7 @@ def mostra_risultati(anno,numero_dati,tupla,mese='',Bourogh_val=''):
     
     # Aggiungo una pagina
     pdf.add_page()
-    pdf.image('./output/grafici_torta.png',w=200, x=0, y=50)
+    pdf.image('./output/grafici.png',w=200, x=0, y=50)
     
     # imposto lo stile e la grandezza del font
     pdf.set_font("Arial", size = 20)
