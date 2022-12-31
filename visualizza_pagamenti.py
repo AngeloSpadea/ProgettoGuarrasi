@@ -31,8 +31,6 @@ def visualizza_pagamenti(dictionary):
     None.
 
     """
-    # labels: nome barre
-    # values: altezza barre
 
     #Creazione della figura che conterrà il grafico a torta
     plt.figure(figsize=(10,10),)
