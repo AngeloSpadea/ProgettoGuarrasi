@@ -12,3 +12,4 @@ dati/*
 output/*
 capomastro angelo.ipynb
 output/*.png
+.vscode/*
