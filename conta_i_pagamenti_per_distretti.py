@@ -74,5 +74,7 @@ def conta_i_pagamenti_per_distretti(data,Borough_val = ''):
         #-- Ricerca senza parametro opzionale del quartiere -- 
         #vengono ritrnati le somme dei "payment_type" generali 
         sum_payment = definitiva2.groupby(['Payment']).payment_type.sum()
-        
+
+    #Pulizia della memoria
+    del definitiva2, definitiva, risultato, indicirisultato    
     return sum_payment

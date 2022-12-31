@@ -71,4 +71,8 @@ def carico_dati(anno,mese=''):
             print("Controllare di avere disposto i file come indicato nel Readme") 
             exit()
     numero_dati = len(data)
+    
     return data, zone_lookup, numero_dati
+
+    #Pulizia della memoria
+    del path, resulto, daticarico, parquet_files,  
