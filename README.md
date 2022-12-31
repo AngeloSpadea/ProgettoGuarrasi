@@ -1,18 +1,18 @@
 # ProgettoGuarrasi
 ## Come si muovono i taxi a New York?
 
-In questo progetto svolgiamo un'analisi dei taxi a New York. In particolare, siamo curiosi di rispondere ad alcune specifiche Research Questions (RQ) che possono aiutare i tassisti a pianificare i loro spostamenti in città e ai clienti ad avere suggerimenti sulla convenienza dell’utilizzo di questo servizio.
+In questo progetto svolgiamo un'analisi dei taxi a New York. In particolare, siamo curiosi di rispondere ad alcune specifiche Research Questions (RQ) che possono aiutare i tassisti a pianificare i loro spostamenti in città e i clienti a fornire suggerimenti sulla convenienza dell’utilizzo di questo servizio.
 Per questo progetto utilizziamo i dati pubblici delle rotte dei Taxi a NYC disponibili su https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page. 
-Di default il programma utilizzera dei dati relativi ai Yellow Taxi per l'anno 2022.
+Di default il programma utilizzerà dei dati relativi ai Yellow Taxi per l'anno 2022.
 
 ## Prima di cominciare
 
-Per preparare il programma al suo corretto utilizzo strutturare la directory, con i dati scaricabili al link sopra, come segue
+Per preparare il programma al suo corretto utilizzo strutturare la directory, con i dati scaricabili dal link sopra, come segue
 
-[Primo link][link1] Vanno scaricati tutti i file relativi ai "yellow trip data" con estenzione  .parquet che andranno inseriti nella cartella ./dati/anni e nell'opportuno anno. 
+[Primo link][link1] Vanno scaricati tutti i file relativi ai "yellow trip data" con estensione  .parquet che andranno inseriti nella cartella ./dati/anni e nel corretto anno. 
 **Esempio** quelli del 2022 andranno inseriti nella directory ./dati/anni/2022
 
-[Secondo link][link1] Dal seguente link dovrete scaricare il file "taxi+_zone_lookup.csv" che dovra essere inserito nella directry ./dati/tabelle_di_conversione
+[Secondo link][link1] Dal seguente link dovrete scaricare il file "taxi+_zone_lookup.csv" che andrà inserito nella directry ./dati/tabelle_di_conversione
 
 ## Tipica struttura della directory del programma
 
@@ -39,12 +39,12 @@ Per preparare il programma al suo corretto utilizzo strutturare la directory, co
     └── README.md
 ## Input e Output
 
-Il programma viene avviato da riga di comando eseguendo il seguente comando, inserendo un anno parametro obbligatorio 
+Il programma viene avviato da riga di comando eseguendo il seguente comando e inserendo un anno come parametro obbligatorio 
 ```sh
 python main.py 2022
 ```
 
-Il programma accetta da riga di comando i seguenti input e restituisce dei grafici da terminale, ogni risultato viene poi salvato nella cartella ./output insime ad un **PDF** riepilogativo
+Il programma accetta da riga di comando i seguenti input e restituisce dei grafici da terminale, ogni risultato viene poi salvato nella cartella ./output insieme ad un **PDF** riepilogativo
 
 | Input |Input opzionali | Output |
 | ------ | ------ | ------ |
@@ -67,8 +67,23 @@ Per maggiori informazioni consultare help da riga di comando
 python main.py help
 ```
 
+**Esempio Output**
+
+Terminato il caricamento dati e l'ellaborazione su di essi, il terminale stamperà a video i risultati della ricerca mostrando il metodo più e meno utilizzati. Nel primo grafico saranno restituiti i risultati che mostreranno anche le percentuali di tutti gli altri metodi di pagamento, mettendoli così a confronto.
+
+![image1](esempio_rm/barchart.png)
+
+Nel secondo grafico verrà mostrato in dettaglio per ogni quartiere il risultato di ogni tipo di pagamento
+
+![image2](esempio_rm/grafici_torta.png)
+
+Nel **PDF** verrà mostrato un report riepilogativo che mostra come titolo i parametri di ricerca utilizzati per l'annalisi, verranno mostrate il numero di occorenze su cui è stata fatta l'analisi e i risultati utilizzando. Seguiranno i grafici stampati da terminale
+
+![image3](esempio_rm/pdf1.png)
+![image4](esempio_rm/pdf2.png)
+
 ## Conclusione
-Verra cosi illustrata la mondalità di pagamento piu comune e la meno comune e per ogni **Quartiere** verra mostrato l'utilizzo per ogni metodo di pagamento. Il risultato verra stampato da riga di comando a cui seguiranno due grafici che illustrano nel dettaglio il risultato oppure tutti i risultati saranno poi consultabili da **Risultati.pdf** nella cartella **output**
+Verrà così illustrata la modalità di pagamento più comune e qualla meno comune.Per ogni **Quartiere** verrà elencato l'utilizzo di ogni metodo di pagamento. Il risultato verrà stampato da riga di comando, seguiranno due grafici che illustrino in dettaglio il risultato oppure tutti i risultati saranno poi consultabili da **Risultati.pdf** nella cartella **output**
  
 
    [link1]: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
