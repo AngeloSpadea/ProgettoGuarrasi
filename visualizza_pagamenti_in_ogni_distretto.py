@@ -25,6 +25,9 @@ def visualizza_pagamenti_in_ogni_distretto(data,Bourogh_list):
     distribuzioni dei vari pagamenti.
 
     """
+    #Preparazione dei grafici con la sostituzione dei codici relativi ai tipi 
+    # di pagamento con i relativi nomi
+    
     lista_conversione=['Void trip','Credit card','Cash','No charge','Dispute','Unknown']
     
     total={}
@@ -32,29 +35,26 @@ def visualizza_pagamenti_in_ogni_distretto(data,Bourogh_list):
         value=conta_i_pagamenti_per_distretti(data,j)
         value.index=lista_conversione[:len(value)]
         total[j]=value
-    #values=list(total['Bronx'].index)
-    #labels=list(total['Bronx'][:])
-     
     
+     
+    #Creazione della figura che conterranno tutti i grafici relativi ad ogni quartiere
+
     plt.figure(figsize=(15,15))
     plt.style.use('ggplot')
     
-    # axs[0, 0].plot(x, y)
-    # axs[0, 1].plot(x, y, 'tab:orange')
-    # axs[1, 0].plot(x, -y, 'tab:green')
-    # axs[1, 1].plot(x, -y, 'tab:red')
-    # cambia lo stile dei colori
+    
     count=1;
     for i in total.keys():
         plt.subplot(3, 3, count)        
         plt.title(i)
         df = pd.Series(total[i])
         df.plot.barh()
-        #plot=df.plot.pie(autopct='%.2f %%',explode=explode,pctdistance=0.8)
-        #plot.set(ylabel=None)
-        # a1.pie(labels, labels=values, explode=explode,pctdistance=0.8, autopct='%.2f %%')
+        
         count+=1
-    plt.savefig('./output/grafici_torta.png', dpi=100)
+    
+    #Salvataggio e visualizzazione dei grafici relativi ad ogni quartiere
+    
+    plt.savefig('./output/grafici.png', dpi=100)
     plt.show()
 
 

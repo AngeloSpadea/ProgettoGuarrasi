@@ -34,19 +34,26 @@ def visualizza_pagamenti(dictionary):
     # labels: nome barre
     # values: altezza barre
 
+    #Creazione della figura che conterrà il grafico a torta
     plt.figure(figsize=(10,10),)
     colors=['black', 'black', 'black', 'black', 'black', 'black']
     colors[int(dictionary.idxmax())]='red'
     colors[int(dictionary.idxmin())]='cyan'
+
+    #Assegno ad ogni codice il nome relativo al tipo di pagamento
     lista_conversione=['Void trip','Credit card','Cash','No charge','Dispute','Unknown']
     dictionary.index=lista_conversione[:len(dictionary)]
     bars = pd.Series(dictionary)
     explode=[0]*len(bars)
     explode[lista_conversione.index(bars.idxmin())]=.6
+    
+    #Settagio delle distanze per migliorare la visualizzazione
     plot=bars.plot.pie(autopct='%.2f %%',pctdistance=0.6,explode=explode) 
     plot.set(ylabel=None)
 
+    #Salvataggio nella cartella outpup
     plt.savefig('./output/barchart.png', dpi=100)
+    #Viene ora mostrata a terminale
     plt.show()
     return explode
     

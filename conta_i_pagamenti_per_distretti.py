@@ -15,21 +15,22 @@ def conta_i_pagamenti_per_distretti(data,Borough_val = ''):
 
     DOLocationID è un intero che va da 1-263
     payment_type è un intero che va da 1-6 e rappresentano con
+    
+    0= Void trip
     1= Credit card
     2= Cash
     3= No charge
     4= Dispute
     5= Unknown
-    6= Voided trip
 
     Parameters
     ----------
-    h : dict
+    data : 
         il set di dati raffinato su cui faccio le mie analisi.
 
     Returns
     -------
-    risultato : Series dove come indice abbiamo (x,y) 
+    sum_payment : Series dove come indice abbiamo (x,y) 
         x = Taxi Zone e y = rappresenta il codice di pagamento
     
     Errors
