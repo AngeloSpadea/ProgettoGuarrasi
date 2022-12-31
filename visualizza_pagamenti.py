@@ -55,7 +55,6 @@ def visualizza_pagamenti(dictionary):
     plt.savefig('./output/barchart.png', dpi=100)
     #Viene ora mostrata a terminale
     plt.show()
-    return explode
     
 if __name__ == '__main__':
     
