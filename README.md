@@ -23,17 +23,17 @@ Per preparare il programma al suo corretto utilizzo strutturare la directory, co
     .
     ├── dati
     │   ├── anni
-    │       ├── 2022
-    │           ├── yellow_tripdata_2022-01.parquet    #scaricare i file dal link sopra
-    │           ├── yellow_tripdata_2022-02.parquet    #mantenendo la struttura del nome,
-    │           └── ...                                #in caso fosse aggiunto ..(1).parquet 
-    │                                                  #"(1)"deve essere eliminato
-    │       ├── 2021
-    │           └── ...
-    │       ├── 2020
-    │           └── ...
-    │   ├── tabelle_di_conversione
-    │       ├── taxi+_zone_lookup.csv
+    │   │   ├── 2022
+    │   │   │   ├── yellow_tripdata_2022-01.parquet    #scaricare i file dal link sopra
+    │   │   │   ├── yellow_tripdata_2022-02.parquet    #mantenendo la struttura del nome,
+    │   │   │   └── ...                                #in caso fosse aggiunto ..(1).parquet 
+    │   │   │                                          #"(1)"deve essere eliminato
+    │   │   ├── 2021
+    │   │   │   └── ...
+    │   │   └── 2020
+    │   │       └── ...
+    │   └── tabelle_di_conversione
+    │       └── taxi+_zone_lookup.csv
     ├── output
     ├── .gitignore
     ├── requirements.txt
