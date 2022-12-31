@@ -48,7 +48,10 @@ Il programma viene avviato da riga di comando eseguendo il seguente comando e in
 ```sh
 python main.py 2022
 ```
-
+Per avviare il programma con i parametri opzionali basta inserire dopo l'anno -m seguito dal mese relativo e/o -d seguito dal distretto 
+```sh
+python main.py 2022 -m 04 -d Bronx
+```
 ## Input e Output
 
 Il programma accetta da riga di comando i seguenti input e restituisce dei grafici da terminale, ogni risultato viene poi salvato nella cartella ./output insieme ad un **PDF** riepilogativo
