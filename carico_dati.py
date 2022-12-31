@@ -24,10 +24,10 @@ def carico_dati(anno,mese=''):
 
     Returns
     -------
-    data, zone_lookup : tupla
-    il dataset grezzo e il file zone_lookup dove ci sono i nomi dei quartieri e i loro codici
-    una stringa nella quale c'è un messaggio  nel quale viene specificato l'esito della funzione.
-    Il terzo elemento della tupla è la lunghezza del dataset
+    data, zone_lookup, numero_dati : tupla
+    il dataset grezzo, il file zone_lookup, e il numero di occorrenze che poi andremo ad analizzare
+    dove ci sono i nomi dei quartieri e i loro codici una stringa nella quale c'è un messaggio  nel 
+    quale viene specificato l'esito della funzione. Il terzo elemento della tupla è la lunghezza del dataset
     Ad esempio "Ho caricato i dati correttamente" o "Non sono riuscito a caricare i dati"
 
     """
@@ -71,4 +71,8 @@ def carico_dati(anno,mese=''):
             print("Controllare di avere disposto i file come indicato nel Readme") 
             exit()
     numero_dati = len(data)
+    
     return data, zone_lookup, numero_dati
+
+    #Pulizia della memoria
+    del path, resulto, daticarico, parquet_files,  

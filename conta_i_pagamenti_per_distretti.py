@@ -15,21 +15,22 @@ def conta_i_pagamenti_per_distretti(data,Borough_val = ''):
 
     DOLocationID è un intero che va da 1-263
     payment_type è un intero che va da 1-6 e rappresentano con
+    
+    0= Void trip
     1= Credit card
     2= Cash
     3= No charge
     4= Dispute
     5= Unknown
-    6= Voided trip
 
     Parameters
     ----------
-    h : dict
+    data : 
         il set di dati raffinato su cui faccio le mie analisi.
 
     Returns
     -------
-    risultato : Series dove come indice abbiamo (x,y) 
+    sum_payment : Series dove come indice abbiamo (x,y) 
         x = Taxi Zone e y = rappresenta il codice di pagamento
     
     Errors
@@ -74,5 +75,7 @@ def conta_i_pagamenti_per_distretti(data,Borough_val = ''):
         #-- Ricerca senza parametro opzionale del quartiere -- 
         #vengono ritrnati le somme dei "payment_type" generali 
         sum_payment = definitiva2.groupby(['Payment']).payment_type.sum()
-        
+
+    #Pulizia della memoria
+    del definitiva2, definitiva, risultato, indicirisultato    
     return sum_payment

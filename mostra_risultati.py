@@ -72,16 +72,19 @@ def mostra_risultati(anno,numero_dati,tupla,mese='',Bourogh_val=''):
     
     # Aggiungo una pagina
     pdf.add_page()
-    pdf.image('./output/grafici_torta.png',w=200, x=0, y=50)
+    pdf.image('./output/grafici.png',w=200, x=0, y=50)
     
     # imposto lo stile e la grandezza del font
     pdf.set_font("Arial", size = 20)
     
     # creo una cella
-    pdf.cell(200, 10, txt = "I barchart per ogni distretto",
+    pdf.cell(200, 10, txt = "I pagamenti per ogni distretto",
               align = 'C')
     
     # salvo il pdf con il nome Risultati.pdf
     pdf.output("./output/Risultati.pdf") 
     
     print("Report pronto")
+
+    #Pulizia della memoria
+    del testo1, testo, lista_conversione
