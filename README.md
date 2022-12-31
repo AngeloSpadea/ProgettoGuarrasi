@@ -74,7 +74,7 @@ L'elenco dei quartieri è il seguente :
 Per maggiori informazioni consultare help da riga di comando
 
 ```sh
-python main.py help
+python main.py -h
 ```
 
 **Esempio Output**
